@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Rulebooks & Guidelines | Intercom 2026</title>
+  <meta name="description" content="Download and view official event rulebooks, scoring rubrics, and guidelines for Intercom 2026 Technical Symposium.">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Ambient background glow elements -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="noise-overlay"></div>
+
+  <!-- Header with Triple Logo Section -->
+  <header class="site-header">
+    <div class="container header-container">
+      <div class="logo-triad">
+        <!-- College Logo -->
+        <a href="index.html" class="logo-item" title="College Logo">
+          <div class="logo-box">
+            <img src="assets/college-logo.svg" alt="College Logo" class="brand-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'60\' height=\'60\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%236366f1\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M22 10v6M2 10l10-5 10 5-10 5z\'/><path d=\'M6 12v5c3 3 9 3 12 0v-5\'/></svg>'">
+          </div>
+          <div class="logo-text">
+            <span class="logo-title">INSTITUTE OF TECH</span>
+            <span class="logo-sub">Affiliated & Autonomous</span>
+          </div>
+        </a>
+
+        <!-- Divider -->
+        <div class="logo-divider"></div>
+
+        <!-- Club Logo -->
+        <a href="index.html" class="logo-item" title="Club Logo">
+          <div class="logo-box club-box">
+            <img src="assets/club-logo.svg" alt="Club Logo" class="brand-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'60\' height=\'60\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23a855f7\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><circle cx=\'12\' cy=\'12\' r=\'10\'/><polyline points=\'12 6 12 12 16 14\'/></svg>'">
+          </div>
+          <div class="logo-text">
+            <span class="logo-title">TECH HORIZON</span>
+            <span class="logo-sub">Official Student Club</span>
+          </div>
+        </a>
+
+        <!-- Divider -->
+        <div class="logo-divider"></div>
+
+        <!-- Symposium Logo -->
+        <a href="index.html" class="logo-item symposium-logo" title="Symposium Logo">
+          <div class="logo-box symposium-box">
+            <img src="assets/symposium-logo.svg" alt="Symposium Logo" class="brand-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'60\' height=\'60\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23ec4899\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><polygon points=\'13 2 3 14 12 14 11 22 21 10 12 10 13 2\'/></svg>'">
+          </div>
+          <div class="logo-text">
+            <span class="logo-title brand-gradient">INTERCOM '26</span>
+            <span class="logo-sub">National Symposium</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Header actions (Back button & Theme toggle) -->
+      <div class="header-actions">
+        <a href="index.html" class="btn btn-sm btn-outline">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Home</span>
+        </a>
+        <button id="themeToggleBtn" class="icon-btn" aria-label="Toggle dark/light mode" title="Toggle Theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <div class="container">
+      
+      <!-- Page Hero Header -->
+      <div class="page-hero">
+        <div class="hero-badge">
+          <i class="fa-solid fa-file-lines"></i>
+          <span>Official Event Rulebooks</span>
+        </div>
+        <h1 class="page-title">Event Guidelines & <span class="gradient-text">Rulebook Hub</span></h1>
+        <p class="page-lead">
+          Find detailed event formats, round specifications, judging criteria, eligibility, and direct download links for every competition.
+        </p>
+
+        <!-- Search Bar and Quick Actions -->
+        <div class="search-filter-bar">
+          <div class="search-input-wrapper">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="rulebookSearchInput" placeholder="Search event by name, keyword, or domain..." autocomplete="off">
+            <button id="clearSearchBtn" class="clear-btn" style="display: none;" title="Clear search">&times;</button>
+          </div>
+          <div class="action-buttons-wrap">
+            <a href="https://forms.google.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+              <i class="fa-solid fa-bolt"></i> Register Now
+            </a>
+            <a href="https://example.edu" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+              <i class="fa-solid fa-globe"></i> Official Site
+            </a>
+          </div>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="category-tabs" id="pageCategoryFilter">
+          <button class="tab-btn active" data-filter="all">All Events (<span id="count-all">0</span>)</button>
+          <button class="tab-btn" data-filter="tech">Technical (<span id="count-tech">0</span>)</button>
+          <button class="tab-btn" data-filter="coding">Coding & AI (<span id="count-coding">0</span>)</button>
+          <button class="tab-btn" data-filter="gaming">Gaming (<span id="count-gaming">0</span>)</button>
+          <button class="tab-btn" data-filter="nontech">Non-Tech (<span id="count-nontech">0</span>)</button>
+        </div>
+      </div>
+
+      <!-- Rulebook Directory List -->
+      <div class="rulebook-detailed-list" id="rulebooksListContainer">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <!-- No Results State -->
+      <div id="noResultsState" class="no-results-card" style="display: none;">
+        <i class="fa-solid fa-circle-question no-results-icon"></i>
+        <h3>No Rulebooks Found</h3>
+        <p>No event matches your search query. Try typing another keyword or clear the search.</p>
+        <button class="btn btn-sm btn-outline" id="resetSearchBtn">Reset Filters</button>
+      </div>
+
+      <!-- Master Download Notice Box -->
+      <div class="master-download-card">
+        <div class="master-card-icon">
+          <i class="fa-solid fa-file-pdf"></i>
+        </div>
+        <div class="master-card-content">
+          <h3>Download Complete Symposium Rulebook Bundle</h3>
+          <p>Prefer an offline copy? Download the aggregated PDF with all schedule timelines, general code of conduct, and coordinator contacts.</p>
+        </div>
+        <div class="master-card-cta">
+          <a href="#" class="btn btn-primary" onclick="event.preventDefault(); alert('Master Rulebook Download: Please replace assets/master-rulebook.pdf with your actual brochure/rulebook file.');">
+            <i class="fa-solid fa-download"></i> Download Master PDF (4.2 MB)
+          </a>
+        </div>
+      </div>
+
+      <!-- General Guidelines Accordion -->
+      <div class="guidelines-card">
+        <h3 class="guidelines-title"><i class="fa-solid fa-circle-info"></i> Universal Symposium Code of Conduct</h3>
+        <ul class="guidelines-list">
+          <li><strong>College ID:</strong> All participants must present a valid college identity card or bonafide certificate at the registration desk.</li>
+          <li><strong>Punctuality:</strong> Teams must report to their respective venues at least 15 minutes prior to event commencement.</li>
+          <li><strong>Cross-College Teams:</strong> Inter-college team formation is permitted unless specifically restricted in an event's rulebook.</li>
+          <li><strong>Decisions:</strong> The decision of the judging panel and event convenors will be final and binding.</li>
+          <li><strong>Academic Integrity:</strong> Plagiarism or unauthorized external assistance during live coding or presentation rounds results in immediate disqualification.</li>
+        </ul>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <div class="footer-logo">
+          <span class="gradient-text font-bold">INTERCOM '26</span>
+          <span class="divider-dot">•</span>
+          <span>Department of Technical Excellence</span>
+        </div>
+        <p class="footer-copy">Crafted with precision for students and innovators. All rights reserved.</p>
+      </div>
+      <div class="footer-right">
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="https://example.edu" target="_blank" rel="noopener">Official Website</a>
+          <a href="https://forms.google.com" target="_blank" rel="noopener">Register</a>
+          <a href="index.html#contactModal" id="btnHelpModal">Help & Support</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

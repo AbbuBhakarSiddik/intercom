@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intercom 2026 | National Level Technical Symposium</title>
+  <meta name="description"
+    content="Official portal for Intercom 2026 Technical Symposium. Access event registration, rulebooks, guidelines, and official website.">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- Ambient background glow elements -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="noise-overlay"></div>
+
+  <!-- Header with Triple Logo Section -->
+  <header class="site-header">
+    <div class="container header-container">
+      <div class="logo-triad">
+        <!-- College Logo -->
+        <a href="#home" class="logo-item" title="College Logo">
+          <div class="logo-box">
+            <img src="assets/college-logo.svg" alt="College Logo" class="brand-img" id="collegeLogoImg"
+              onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'60\' height=\'60\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%236366f1\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M22 10v6M2 10l10-5 10 5-10 5z\'/><path d=\'M6 12v5c3 3 9 3 12 0v-5\'/></svg>'">
+          </div>
+          <div class="logo-text">
+            <span class="logo-title">INSTITUTE OF TECH</span>
+            <span class="logo-sub">Affiliated & Autonomous</span>
+          </div>
+        </a>
+
+        <!-- Divider -->
+        <div class="logo-divider"></div>
+
+        <!-- Club Logo -->
+        <a href="#club" class="logo-item" title="Club Logo">
+          <div class="logo-box club-box">
+            <img src="assets/club-logo.svg" alt="Club Logo" class="brand-img" id="clubLogoImg"
+              onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'60\' height=\'60\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23a855f7\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><circle cx=\'12\' cy=\'12\' r=\'10\'/><polyline points=\'12 6 12 12 16 14\'/></svg>'">
+          </div>
+          <div class="logo-text">
+            <span class="logo-title">TECH HORIZON</span>
+            <span class="logo-sub">Official Student Club</span>
+          </div>
+        </a>
+
+        <!-- Divider -->
+        <div class="logo-divider"></div>
+
+        <!-- Symposium Logo -->
+        <a href="#home" class="logo-item symposium-logo" title="Symposium Logo">
+          <div class="logo-box symposium-box">
+            <img src="assets/symposium-logo.svg" alt="Symposium Logo" class="brand-img" id="symposiumLogoImg"
+              onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'60\' height=\'60\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23ec4899\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><polygon points=\'13 2 3 14 12 14 11 22 21 10 12 10 13 2\'/></svg>'">
+          </div>
+          <div class="logo-text">
+            <span class="logo-title brand-gradient">INTERCOM '26</span>
+            <span class="logo-sub">National Symposium</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Header actions (Theme toggle & status) -->
+      <div class="header-actions">
+        <button id="themeToggleBtn" class="icon-btn" aria-label="Toggle dark/light mode" title="Toggle Theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+      <div class="container hero-container">
+
+        <!-- Live Tag Badge -->
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          <span>Inter-College Tech Fest • Edition 2026</span>
+        </div>
+
+        <h1 class="hero-title">
+          Connect. Innovate. <br>
+          <span class="gradient-text">Dominate the Arena.</span>
+        </h1>
+
+        <p class="hero-description">
+          Welcome to the gateway portal of Intercom '26. Register your team, explore guidelines, or visit our central
+          campus website.
+        </p>
+
+        <!-- 3 Primary Action Options Requested by User -->
+        <div class="action-grid" id="mainActions">
+
+          <!-- Option 1: Registration Button -->
+          <div class="action-card card-register">
+            <div class="card-glow"></div>
+            <div class="card-icon-wrap">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            <div class="card-body">
+              <span class="card-tag">Fast Track</span>
+              <h2 class="card-title">Registration</h2>
+              <p class="card-info">Secure your spot across Technical, Coding, AI, and Gaming events.</p>
+
+              <!-- Direct Button -->
+              <a href="https://forms.google.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary"
+                id="btnRegistration">
+                <span>Register Now</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Option 2: Official Website Button -->
+          <div class="action-card card-website">
+            <div class="card-glow"></div>
+            <div class="card-icon-wrap">
+              <i class="fa-solid fa-globe"></i>
+            </div>
+            <div class="card-body">
+              <span class="card-tag">College Hub</span>
+              <h2 class="card-title">Official Website</h2>
+              <p class="card-info">Explore department details, faculty coordinators, gallery and campus venue.</p>
+
+              <!-- Direct Redirect Button -->
+              <a href="https://example.edu" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"
+                id="btnOfficialWebsite">
+                <span>Visit Website</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Option 3: Rulebooks Button -->
+          <div class="action-card card-rulebook">
+            <div class="card-glow"></div>
+            <div class="card-icon-wrap">
+              <i class="fa-solid fa-book-bookmark"></i>
+            </div>
+            <div class="card-body">
+              <span class="card-tag">Guidelines & PDFs</span>
+              <h2 class="card-title">Rulebooks</h2>
+              <p class="card-info">Complete rule sets, evaluation rubrics, team size limits, and schedules.</p>
+
+              <!-- Link to Rulebooks View / Page -->
+              <a href="rulebooks.html" class="btn btn-accent" id="btnRulebooks">
+                <span>View Rulebooks</span>
+                <i class="fa-solid fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Quick Rulebook Preview / In-page Jump -->
+        <div class="quick-jump-banner">
+          <p>Looking for quick event rules without leaving? <a href="#quickRulebooks" class="link-inline">Browse
+              Rulebooks Below <i class="fa-solid fa-arrow-down"></i></a> or visit the <a href="rulebooks.html"
+              class="link-inline">Dedicated Rulebook Portal <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-container">
+        <div class="footer-left">
+          <div class="footer-logo">
+            <span class="gradient-text font-bold">INTERCOM '26</span>
+            <span class="divider-dot">•</span>
+            <span>Department of Technical Excellence</span>
+          </div>
+          <p class="footer-copy">Crafted with precision for students and innovators. All rights reserved.</p>
+        </div>
+        <div class="footer-right">
+          <div class="footer-links">
+            <a href="https://example.edu" target="_blank" rel="noopener">Campus Portal</a>
+            <a href="rulebooks.html">All Rulebooks</a>
+            <a href="#quickRulebooks">Event Rules</a>
+            <a href="#contactModal" id="btnHelpModal">Help & Support</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Help & Contact Modal -->
+    <div class="modal" id="contactModal" aria-hidden="true">
+      <div class="modal-backdrop"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Symposium Helpdesk</h3>
+          <button class="modal-close" id="closeContactModal" aria-label="Close modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p class="modal-desc">Have queries regarding registration, eligibility, or event rules? Reach out to our
+            student convenors:</p>
+          <div class="contact-card">
+            <div class="contact-row">
+              <i class="fa-solid fa-user-tie"></i>
+              <div>
+                <strong>Student Coordinator:</strong> Alex Morgan (+91 98765 43210)
+              </div>
+            </div>
+            <div class="contact-row">
+              <i class="fa-solid fa-envelope"></i>
+              <div>
+                <strong>Symposium Email:</strong> intercom2026@institution.edu
+              </div>
+            </div>
+            <div class="contact-row">
+              <i class="fa-solid fa-location-dot"></i>
+              <div>
+                <strong>Venue:</strong> Main Auditorium, Campus Academic Block
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

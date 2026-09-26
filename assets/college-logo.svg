@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="clgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#4338ca" />
+    </linearGradient>
+  </defs>
+  <!-- Modern Crest / Shield -->
+  <polygon points="50,6 88,24 88,64 50,94 12,64 12,24" fill="url(#clgGrad)" stroke="#818cf8" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Inner Academic Laurel / Torch & Cap -->
+  <path d="M50 28 L72 38 L50 48 L28 38 Z" fill="#ffffff" opacity="0.95"/>
+  <path d="M66 43 L66 60 C66 60 58 66 50 66 C42 66 34 60 34 60 L34 43" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Star of Excellence -->
+  <polygon points="50,68 53,74 60,75 55,80 56,86 50,83 44,86 45,80 40,75 47,74" fill="#fbbf24"/>
+</svg>
