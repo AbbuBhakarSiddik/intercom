@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Rulebooks & Guidelines | Innovation Ignite 2.0</title>
+  <meta name="description" content="Download and view official event rulebooks, scoring rubrics, and guidelines for Innovation Ignite Symposium 2.0 organized by Creative Codex, Dept. of CSE, SIET.">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Ambient background glow elements -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="noise-overlay"></div>
+
+  <!-- Floating Controls (Home & Theme Toggle) -->
+  <aside class="floating-controls" style="display: flex; gap: 10px; align-items: center;">
+    <a href="index.html" class="floating-theme-btn" aria-label="Go to Home" title="Back to Home" style="text-decoration: none;">
+      <i class="fa-solid fa-arrow-left"></i>
+    </a>
+    <button id="themeToggleBtn" class="floating-theme-btn" aria-label="Toggle dark/light mode" title="Toggle Theme">
+      <i class="fa-solid fa-moon"></i>
+    </button>
+  </aside>
+
+  <!-- Brand & Identity Showcase Section -->
+  <section class="brand-showcase-section">
+    <div class="container showcase-container">
+
+      <!-- 1. College Card (Round Circle Logo on Top, with College Name Tag) -->
+      <div class="brand-card college-card">
+        <a href="https://www.shrideviengineering.org" target="_blank" rel="noopener noreferrer" class="brand-card-link"
+          title="Visit Shridevi Engineering Official Website">
+          <div class="brand-logo-frame college-frame">
+            <img src="assets/SIETLOGO2.jpeg" alt="Shridevi Institute of Engineering & Technology Logo"
+              class="brand-logo-img college-logo-img">
+          </div>
+          <div class="brand-info">
+            <span class="brand-badge college-badge"><i class="fa-solid fa-graduation-cap"></i> Affiliated to VTU • NAAC
+              'A' Accredited</span>
+            <h1 class="brand-name college-brand-name">SHRIDEVI INSTITUTE OF ENGINEERING &amp; TECHNOLOGY</h1>
+            <p class="brand-sub">Sira Road, Tumakuru, Karnataka | Approved by AICTE, New Delhi</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- 2. Dual Showcase Row: Club and Symposium Side-by-Side Below College -->
+      <div class="showcase-subrow">
+
+        <!-- Creative Codex Club Card -->
+        <div class="brand-card club-card">
+          <div class="brand-logo-frame club-frame">
+            <img src="assets/cclogo1.png" alt="Creative Codex Club Logo" class="brand-logo-img" id="clubLogoImg"
+              onerror="this.onerror=null; this.src='assets/club-logo.svg';">
+          </div>
+          <div class="brand-info">
+            <span class="brand-badge club-badge"><i class="fa-solid fa-code"></i> Student Club</span>
+            <h2 class="brand-name">CREATIVE CODEX</h2>
+            <p class="brand-sub">Dept. of Computer Science & Engineering</p>
+          </div>
+        </div>
+
+        <!-- Center Visual Connector -->
+        <div class="showcase-connector" aria-hidden="true">
+          <div class="connector-line"></div>
+          <div class="connector-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
+          <div class="connector-line"></div>
+        </div>
+
+        <!-- Innovation Ignite 2.0 Symposium Card -->
+        <div class="brand-card symposium-card">
+          <div class="brand-logo-frame symposium-frame">
+            <img src="assets/no bg sympo2.0.png" alt="Innovation Ignite Symposium 2.0 Logo" class="brand-logo-img"
+              id="symposiumLogoImg" onerror="this.onerror=null; this.src='assets/symposium-logo.svg';">
+          </div>
+          <div class="brand-info">
+            <span class="brand-badge symposium-badge"><i class="fa-solid fa-fire-flame-curved"></i> National
+              Symposium</span>
+            <h2 class="brand-name brand-name-ignite">INNOVATION IGNITE 2.0</h2>
+            <p class="brand-sub">National Level Technical Symposium 2026</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <main class="page-main">
+    <div class="container">
+      
+      <!-- Page Hero Header -->
+      <div class="page-hero">
+        <div class="hero-badge">
+          <i class="fa-solid fa-file-lines"></i>
+          <span>Official Event Rulebooks</span>
+        </div>
+        <h1 class="page-title">Event Guidelines & <span class="gradient-text">Rulebook Hub</span></h1>
+        <p class="page-lead">
+          Find detailed event formats, round specifications, judging criteria, eligibility, and direct download links for every competition.
+        </p>
+
+        <!-- Search Bar and Quick Actions -->
+        <div class="search-filter-bar">
+          <div class="search-input-wrapper">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="rulebookSearchInput" placeholder="Search event by name, keyword, or domain..." autocomplete="off">
+            <button id="clearSearchBtn" class="clear-btn" style="display: none;" title="Clear search">&times;</button>
+          </div>
+          <div class="action-buttons-wrap">
+            <a href="https://forms.google.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+              <i class="fa-solid fa-bolt"></i> Register Now
+            </a>
+            <a href="https://www.shrideviengineering.org" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+              <i class="fa-solid fa-globe"></i> Official Site
+            </a>
+          </div>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="category-tabs" id="pageCategoryFilter">
+          <button class="tab-btn active" data-filter="all">All Events (<span id="count-all">0</span>)</button>
+          <button class="tab-btn" data-filter="tech">Technical (<span id="count-tech">0</span>)</button>
+          <button class="tab-btn" data-filter="coding">Coding & AI (<span id="count-coding">0</span>)</button>
+          <button class="tab-btn" data-filter="gaming">Gaming (<span id="count-gaming">0</span>)</button>
+          <button class="tab-btn" data-filter="nontech">Non-Tech (<span id="count-nontech">0</span>)</button>
+        </div>
+      </div>
+
+      <!-- Rulebook Directory List -->
+      <div class="rulebook-detailed-list" id="rulebooksListContainer">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <!-- No Results State -->
+      <div id="noResultsState" class="no-results-card" style="display: none;">
+        <i class="fa-solid fa-circle-question no-results-icon"></i>
+        <h3>No Rulebooks Found</h3>
+        <p>No event matches your search query. Try typing another keyword or clear the search.</p>
+        <button class="btn btn-sm btn-outline" id="resetSearchBtn">Reset Filters</button>
+      </div>
+
+      <!-- Master Download Notice Box -->
+      <div class="master-download-card">
+        <div class="master-card-icon">
+          <i class="fa-solid fa-file-pdf"></i>
+        </div>
+        <div class="master-card-content">
+          <h3>Download Complete Symposium Rulebook Bundle</h3>
+          <p>Prefer an offline copy? Download the aggregated PDF with all schedule timelines, general code of conduct, and coordinator contacts.</p>
+        </div>
+        <div class="master-card-cta">
+          <a href="#" class="btn btn-primary" onclick="event.preventDefault(); alert('Master Rulebook Download: Please replace assets/master-rulebook.pdf with your actual brochure/rulebook file.');">
+            <i class="fa-solid fa-download"></i> Download Master PDF (4.2 MB)
+          </a>
+        </div>
+      </div>
+
+      <!-- General Guidelines Accordion -->
+      <div class="guidelines-card">
+        <h3 class="guidelines-title"><i class="fa-solid fa-circle-info"></i> Universal Symposium Code of Conduct</h3>
+        <ul class="guidelines-list">
+          <li><strong>College ID:</strong> All participants must present a valid college identity card or bonafide certificate at the registration desk.</li>
+          <li><strong>Punctuality:</strong> Teams must report to their respective venues at least 15 minutes prior to event commencement.</li>
+          <li><strong>Cross-College Teams:</strong> Inter-college team formation is permitted unless specifically restricted in an event's rulebook.</li>
+          <li><strong>Decisions:</strong> The decision of the judging panel and event convenors will be final and binding.</li>
+          <li><strong>Academic Integrity:</strong> Plagiarism or unauthorized external assistance during live coding or presentation rounds results in immediate disqualification.</li>
+        </ul>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <div class="footer-logo">
+          <div class="footer-title-wrap">
+            <span class="footer-symposium-title gradient-text">Innovation Ignite Symposium 2.0</span>
+          </div>
+          <div class="footer-club-wrap">
+            <span class="footer-club-name">Creative Codex • Dept. of CSE, SIET</span>
+          </div>
+        </div>
+        <p class="footer-copy">National Level Technical Symposium • Shridevi Institute of Engineering & Technology.</p>
+      </div>
+      <div class="footer-right">
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="https://www.shrideviengineering.org" target="_blank" rel="noopener">Official Website</a>
+          <a href="https://forms.google.com" target="_blank" rel="noopener">Register</a>
+          <a href="index.html#contactModal" id="btnHelpModal">Help & Support</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

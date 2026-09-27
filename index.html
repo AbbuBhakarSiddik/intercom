@@ -3,16 +3,16 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Innovation Ignite Symposium 2.0 | Creative Codex | SIET</title>
   <meta name="description"
-    content="Official portal for Innovation Ignite Symposium 2.0 organized by Creative Codex, Department of Computer Science & Engineering, Shridevi Institute of Engineering and Technology.">
+    content="Official mobile portal for Innovation Ignite Symposium 2.0 organized by Creative Codex, Department of Computer Science & Engineering, Shridevi Institute of Engineering and Technology.">
 
   <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
 
   <!-- Font Awesome Icons -->
@@ -26,229 +26,441 @@
   <!-- Ambient background glow elements -->
   <div class="ambient-glow glow-1"></div>
   <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
   <div class="noise-overlay"></div>
 
-  <!-- Floating Theme Toggle -->
-  <aside class="floating-controls">
-    <button id="themeToggleBtn" class="floating-theme-btn" aria-label="Toggle dark/light mode" title="Toggle Theme">
-      <i class="fa-solid fa-moon"></i>
-    </button>
-  </aside>
+  <!-- Top Glassmorphism Navigation Bar -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="https://www.shrideviengineering.org" target="_blank" rel="noopener noreferrer"
+        class="header-college-pill" title="Visit Shridevi Official Website">
+        <div class="header-logo-wrap">
+          <img src="assets/SIETLOGO2.jpeg" alt="SIET College Logo" class="header-mini-logo">
+        </div>
+        <div class="header-college-text">
+          <span class="header-college-name">SHRIDEVI INSTITUTE OF ENGINEERING &amp; TECHNOLOGY</span>
+          <span class="header-college-sub">VTU Affiliated • NAAC 'A' Accredited</span>
+        </div>
+      </a>
 
-  <!-- Brand & Identity Showcase Section -->
-  <section class="brand-showcase-section">
-    <div class="container showcase-container">
-
-      <!-- 1. College Card (Round Circle Logo on Top, with College Name Tag) -->
-      <div class="brand-card college-card">
-        <a href="https://www.shrideviengineering.org" target="_blank" rel="noopener noreferrer" class="brand-card-link"
-          title="Visit Shridevi Engineering Official Website">
-          <div class="brand-logo-frame college-frame">
-            <img src="assets/SIETLOGO2.jpeg" alt="Shridevi Institute of Engineering & Technology Logo"
-              class="brand-logo-img college-logo-img">
-          </div>
-          <div class="brand-info">
-            <span class="brand-badge college-badge"><i class="fa-solid fa-graduation-cap"></i> Affiliated to VTU • NAAC
-              'A' Accredited</span>
-            <h1 class="brand-name college-brand-name">SHRIDEVI INSTITUTE OF ENGINEERING &amp; TECHNOLOGY</h1>
-            <p class="brand-sub">Sira Road, Tumakuru, Karnataka | Approved by AICTE, New Delhi</p>
-          </div>
+      <div class="header-actions">
+        <a href="#contactModal" id="btnHelpTrigger" class="header-icon-btn" title="Helpdesk & Venue"
+          aria-label="Help & Contact">
+          <i class="fa-solid fa-headset"></i>
         </a>
+        <button id="themeToggleBtn" class="header-icon-btn" aria-label="Toggle dark/light mode" title="Toggle Theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
       </div>
-
-      <!-- 2. Dual Showcase Row: Club and Symposium Side-by-Side Below College -->
-      <div class="showcase-subrow">
-
-        <!-- Creative Codex Club Card -->
-        <div class="brand-card club-card">
-          <div class="brand-logo-frame club-frame">
-            <img src="assets/cclogo1.png" alt="Creative Codex Club Logo" class="brand-logo-img" id="clubLogoImg"
-              onerror="this.onerror=null; this.src='assets/club-logo.svg';">
-          </div>
-          <div class="brand-info">
-            <span class="brand-badge club-badge"><i class="fa-solid fa-code"></i> Student Club</span>
-            <h2 class="brand-name">CREATIVE CODEX</h2>
-            <p class="brand-sub">Dept. of Computer Science & Engineering</p>
-          </div>
-        </div>
-
-        <!-- Center Visual Connector -->
-        <div class="showcase-connector" aria-hidden="true">
-          <div class="connector-line"></div>
-          <div class="connector-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
-          <div class="connector-line"></div>
-        </div>
-
-        <!-- Innovation Ignite 2.0 Symposium Card -->
-        <div class="brand-card symposium-card">
-          <div class="brand-logo-frame symposium-frame">
-            <img src="assets/no bg sympo2.0.png" alt="Innovation Ignite Symposium 2.0 Logo" class="brand-logo-img"
-              id="symposiumLogoImg" onerror="this.onerror=null; this.src='assets/symposium-logo.svg';">
-          </div>
-          <div class="brand-info">
-            <span class="brand-badge symposium-badge"><i class="fa-solid fa-fire-flame-curved"></i> National
-              Symposium</span>
-            <h2 class="brand-name brand-name-ignite">INNOVATION IGNITE 2.0</h2>
-            <p class="brand-sub">National Level Technical Symposium 2026</p>
-          </div>
-        </div>
-
-      </div>
-
     </div>
-  </section>
+  </header>
 
-  <!-- Main Content -->
-  <main>
-    <!-- Hero Section -->
-    <section class="hero-section" id="home">
-      <div class="container hero-container">
+  <!-- Main Mobile-First Portal Container -->
+  <main class="portal-main">
+    <div class="container portal-container">
 
-        <!-- Live Tag Badge -->
-        <div class="hero-badge">
-          <span class="pulse-dot"></span>
-          <span>Creative Codex Presents • Innovation Ignite 2.0</span>
+      <!-- Unified Brand Hero Section -->
+      <section class="portal-hero">
+
+        <!-- Department & Club Header Tag -->
+        <div class="hero-meta-badges">
+          <span class="meta-badge dept-badge">
+            <i class="fa-solid fa-code"></i> Dept. of Computer Science &amp; Engineering
+          </span>
+          <span class="meta-badge club-badge">
+            <i class="fa-solid fa-users-rays"></i> Creative Codex Presents
+          </span>
         </div>
 
-        <h1 class="hero-title">
-          Connect. Innovate. <br>
-          <span class="gradient-text">Dominate the Arena.</span>
-        </h1>
+        <!-- Trio Emblem Brand Cluster -->
+        <div class="emblem-showcase-cluster" aria-label="Institutions and Event Logos">
+          <div class="connector-track" aria-hidden="true"></div>
 
-        <p class="hero-description">
-          Welcome to the official portal of Innovation Ignite Symposium 2.0. Register your team, explore guidelines, or
-          visit our central campus website.
-        </p>
+          <!-- College Logo -->
+          <a href="https://www.shrideviengineering.org" target="_blank" rel="noopener noreferrer"
+            class="emblem-card emblem-college" title="Shridevi Institute of Engineering & Technology">
+            <div class="emblem-frame">
+              <img src="assets/SIETLOGO2.jpeg" alt="SIET Logo" class="emblem-img">
+            </div>
+            <span class="emblem-caption">SIET</span>
+          </a>
 
-        <!-- 3 Primary Action Options Requested by User -->
+          <!-- Innovation Ignite 2.0 (Center / Star Emblem) -->
+          <div class="emblem-card emblem-symposium" title="Innovation Ignite Symposium 2.0">
+            <div class="emblem-frame emblem-frame-sympo">
+              <div class="emblem-pulse-ring"></div>
+              <img src="assets/no bg sympo2.0.png" alt="Innovation Ignite 2.0 Logo" class="emblem-img emblem-img-sympo"
+                id="symposiumLogoImg" onerror="this.onerror=null; this.src='assets/symposium-logo.svg';">
+            </div>
+            <span class="emblem-caption caption-highlight">IIS 2.0</span>
+          </div>
+
+          <!-- Creative Codex Club Logo -->
+          <div class="emblem-card emblem-club" title="Creative Codex Student Club">
+            <div class="emblem-frame">
+              <img src="assets/cclogo1.png" alt="Creative Codex Club Logo" class="emblem-img" id="clubLogoImg"
+                onerror="this.onerror=null; this.src='assets/club-logo.svg';">
+            </div>
+            <span class="emblem-caption">
+              <span class="caption-line">Creative</span>
+              <span class="caption-line">Codex</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Typography Branding -->
+        <div class="hero-headings">
+          <!-- Small National Level Badge Upside the Title -->
+          <div class="hero-national-wrapper">
+            <span class="hero-national-badge">
+              <i class="fa-solid fa-star"></i> National Level <i class="fa-solid fa-star"></i>
+            </span>
+          </div>
+
+          <h1 class="portal-title">
+            <span class="title-primary">INNOVATION IGNITE</span>
+            <span class="title-secondary">SYMPOSIUM <span class="title-version-gradient">2.0</span></span>
+          </h1>
+
+          <p class="portal-tagline">Connect • Innovate • Dominate the Arena</p>
+        </div>
+
+        <!-- Quick Event Perks / Highlight Badges -->
+        <div class="perks-badge-row">
+          <span class="perk-chip"><i class="fa-solid fa-bolt"></i> 3 Events</span>
+          <span class="perk-chip"><i class="fa-solid fa-trophy"></i> Cash Prizes</span>
+          <span class="perk-chip"><i class="fa-solid fa-certificate"></i> Certificates</span>
+          <span class="perk-chip"><i class="fa-solid fa-location-dot"></i> SIET Tumakuru</span>
+        </div>
+
+      </section>
+
+      <!-- The 3 Core Action Cards (QR Scan Destination) -->
+      <section class="action-portal-section" aria-label="Portal Navigation Actions">
+
+        <div class="action-section-heading">
+          <span class="pulse-dot"></span>
+          <span class="heading-label">TAP TO ACCESS PORTAL</span>
+        </div>
+
+        <!-- 3 Aligned Interactive Touch Cards -->
         <div class="action-grid" id="mainActions">
 
-          <!-- Option 1: Registration Button -->
+          <!-- CARD 1: REGISTRATION (Featured / High Energy) -->
           <div class="action-card card-register">
-            <div class="card-glow"></div>
-            <div class="card-icon-wrap">
-              <i class="fa-solid fa-bolt"></i>
+            <div class="card-glow-bg"></div>
+
+            <div class="card-top-row">
+              <div class="card-icon-wrap">
+                <i class="fa-solid fa-bolt-lightning"></i>
+              </div>
+              <span class="card-status-pill pill-live">
+                <span class="pulse-dot"></span>
+                <span>Open Now</span>
+              </span>
             </div>
+
             <div class="card-body">
-              <span class="card-tag">Fast Track</span>
+              <span class="card-category-tag">Join the event</span>
               <h2 class="card-title">Registration</h2>
-              <p class="card-info">Secure your spot across Technical, Coding, AI, and Gaming events.</p>
+              <p class="card-info">
+                Registrations are now open. Register your team and participate in the exciting events of Innovation Ignite Symposium 2.0.
+              </p>
+            </div>
 
-              <!-- Direct Button -->
-              <a href="https://forms.google.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary"
-                id="btnRegistration">
-                <span>Register Now</span>
+            <a href="https://forms.google.com" target="_blank" rel="noopener noreferrer" class="card-action-bar"
+              id="btnRegistration" aria-label="Register Now for Innovation Ignite Events">
+              <span class="card-action-label">Register Now</span>
+              <span class="card-action-arrow">
                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              </a>
-            </div>
+              </span>
+            </a>
           </div>
 
-          <!-- Option 2: Official Website Button -->
+          <!-- CARD 2: OFFICIAL WEBSITE -->
           <div class="action-card card-website">
-            <div class="card-glow"></div>
-            <div class="card-icon-wrap">
-              <i class="fa-solid fa-globe"></i>
-            </div>
-            <div class="card-body">
-              <span class="card-tag">College Hub</span>
-              <h2 class="card-title">Official Website</h2>
-              <p class="card-info">Explore department details, faculty coordinators, gallery and campus venue.</p>
+            <div class="card-glow-bg"></div>
 
-              <!-- Direct Redirect Button -->
-              <a href="https://symposium-2-0.vercel.app/" target="_blank" rel="noopener noreferrer"
-                class="btn btn-secondary" id="btnOfficialWebsite">
-                <span>Visit Website</span>
+            <div class="card-top-row">
+              <div class="card-icon-wrap">
+                <i class="fa-solid fa-globe"></i>
+              </div>
+              <span class="card-status-pill pill-cyan">
+                <i class="fa-solid fa-building-columns"></i>
+                <span>Symposium Portal</span>
+              </span>
+            </div>
+
+            <div class="card-body">
+              <h2 class="card-title">Official Symposium Website</h2>
+              <p class="card-info">
+                Explore event details, schedules, announcements, and the latest updates on the official symposium website.
+              </p>
+            </div>
+
+            <a href="https://symposium-2-0.vercel.app/" target="_blank" rel="noopener noreferrer"
+              class="card-action-bar" id="btnOfficialWebsite" aria-label="Visit Official Symposium Website">
+              <span class="card-action-label">Visit Website</span>
+              <span class="card-action-arrow">
                 <i class="fa-solid fa-arrow-right"></i>
-              </a>
-            </div>
+              </span>
+            </a>
           </div>
 
-          <!-- Option 3: Rulebooks Button -->
+          <!-- CARD 3: RULEBOOKS & GUIDELINES -->
           <div class="action-card card-rulebook">
-            <div class="card-glow"></div>
-            <div class="card-icon-wrap">
-              <i class="fa-solid fa-book-bookmark"></i>
+            <div class="card-glow-bg"></div>
+
+            <div class="card-top-row">
+              <div class="card-icon-wrap">
+                <i class="fa-solid fa-book-bookmark"></i>
+              </div>
+              <span class="card-status-pill pill-accent">
+                <i class="fa-solid fa-file-shield"></i>
+                <span>Rules &amp; PDFs</span>
+              </span>
             </div>
+
             <div class="card-body">
-              <span class="card-tag">Guidelines & PDFs</span>
+              <span class="card-category-tag">Guidelines and Criteria</span>
               <h2 class="card-title">Rulebooks</h2>
-              <p class="card-info">Complete rule sets, evaluation rubrics, team size limits, and schedules.</p>
+              <p class="card-info">
+                Review participation rules, eligibility criteria, event structure, and judging guidelines.
+              </p>
+            </div>
 
-              <!-- Link to Rulebooks View / Page -->
-              <a href=# class="btn btn-accent" id="btnRulebooks">
-                <span>View Rulebooks</span>
+            <a href="rulebooks.html" class="card-action-bar" id="btnRulebooks"
+              aria-label="Browse Official Event Rulebooks and PDFs">
+              <span class="card-action-label">View Rulebooks</span>
+              <span class="card-action-arrow">
                 <i class="fa-solid fa-chevron-right"></i>
-              </a>
-            </div>
+              </span>
+            </a>
           </div>
 
         </div>
 
+      </section>
 
+      <!-- Quick Assistance / Help Desk Banner -->
+      <section class="help-card-banner">
+        <div class="help-banner-content">
+          <div class="help-icon-wrap">
+            <i class="fa-solid fa-circle-question"></i>
+          </div>
+          <div class="help-text">
+            <h3 class="help-title">Need Help with Registration or Rules?</h3>
+            <p class="help-desc">Our student coordinators &amp; faculty convenors are available to assist you.</p>
+          </div>
+        </div>
+        <a href="#contactModal" id="btnHelpModal" class="btn btn-help-outline">
+          <i class="fa-solid fa-phone"></i>
+          <span>Helpdesk &amp; Contacts</span>
+        </a>
+      </section>
 
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <div class="footer-logo">
+          <div class="footer-title-wrap">
+            <span class="footer-symposium-title gradient-text">Innovation Ignite Symposium 2.0</span>
+          </div>
+          <div class="footer-club-wrap">
+            <span class="footer-club-name">Creative Codex • Dept. of CSE, SIET</span>
+          </div>
+        </div>
+        <p class="footer-copy">
+         • Shridevi Institute of Engineering &amp; Technology, Tumakuru - 572106.
+        </p>
       </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="site-footer">
-      <div class="container footer-container">
-        <div class="footer-left">
-          <div class="footer-logo">
-            <span class="gradient-text font-bold">INNOVATION IGNITE 2.0</span>
-            <span class="divider-dot">•</span>
-            <span>Creative Codex • Dept. of CSE, SIET</span>
-          </div>
-          <p class="footer-copy">National Level Technical Symposium • Shridevi Institute of Engineering & Technology.
-          </p>
-        </div>
-        <div class="footer-right">
-          <div class="footer-links">
-            <a href="https://www.shrideviengineering.org" target="_blank" rel="noopener">Campus Portal</a>
-            <a href="rulebooks.html">All Rulebooks</a>
-            <a href="#quickRulebooks">Event Rules</a>
-            <a href="#contactModal" id="btnHelpModal">Help & Support</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <!-- Help & Contact Modal -->
-    <div class="modal" id="contactModal" aria-hidden="true">
-      <div class="modal-backdrop"></div>
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3 class="modal-title">Innovation Ignite 2.0 Helpdesk</h3>
-          <button class="modal-close" id="closeContactModal" aria-label="Close modal">&times;</button>
-        </div>
-        <div class="modal-body">
-          <p class="modal-desc">Have queries regarding registration, eligibility, or event rules? Reach out to our
-            convenors & coordinators:</p>
-          <div class="contact-card">
-            <div class="contact-row">
-              <i class="fa-solid fa-users"></i>
-              <div>
-                <strong>Student Club:</strong> Creative Codex (Dept. of CSE)
-              </div>
-            </div>
-            <div class="contact-row">
-              <i class="fa-solid fa-envelope"></i>
-              <div>
-                <strong>Official Website:</strong> www.shrideviengineering.org
-              </div>
-            </div>
-            <div class="contact-row">
-              <i class="fa-solid fa-location-dot"></i>
-              <div>
-                <strong>Venue:</strong> Campus Auditorium, Shridevi Institute of Engineering and Technology, Sira Road,
-                Tumakuru - 572 106
-              </div>
-            </div>
-          </div>
+      <div class="footer-right">
+        <div class="footer-links">
+          <a href="https://www.shrideviengineering.org" target="_blank" rel="noopener">Campus Portal</a>
         </div>
       </div>
     </div>
+  </footer>
 
-    <script src="script.js"></script>
+  <!-- Help & Contact Modal -->
+  <div class="modal" id="contactModal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <i class="fa-solid fa-headset modal-header-icon"></i>
+          <h3 class="modal-title">Innovation Ignite Symposium 2.0 Helpdesk</h3>
+        </div>
+        <button class="modal-close" id="closeContactModal" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-desc">Have questions regarding team registrations, event guidelines, or reaching campus? Contact
+          our coordinators:</p>
+        <div class="contact-card">
+          <!-- Interactive Contact Tab (Replaces Student Club) -->
+          <div class="contact-tab-card" id="contactTabCard">
+            <button type="button" class="contact-row contact-tab-trigger" id="contactTabBtn" aria-expanded="false"
+              aria-controls="contactDirectoryPanel">
+              <div class="contact-row-icon contact-icon-phone"><i class="fa-solid fa-address-book"></i></div>
+              <div class="contact-tab-title-wrap">
+                <div class="contact-title-line">
+                  <strong>Contact:</strong>
+                  <span class="contact-pill-tag"><i class="fa-solid fa-chevron-down arrow-icon"></i> Tap to View</span>
+                </div>
+                <span class="contact-tab-sub">Event leads, member names &amp; phone numbers</span>
+              </div>
+            </button>
+
+            <!-- Structured Event Coordinators Directory -->
+            <div class="contact-directory-panel" id="contactDirectoryPanel" style="display: none;">
+
+              <!-- 1. General -->
+              <div class="coord-category-group">
+                <div class="coord-category-header">
+                  <span class="coord-cat-badge badge-general"><i class="fa-solid fa-users"></i> General</span>
+                </div>
+                <div class="coord-members-list">
+                  <div class="coord-member-row">
+                    <span class="coord-name">Abbu Bhakar siddik</span>
+                    <a href="tel:7022615928" class="coord-phone-btn" title="Call Abbu Bhakar siddik">
+                      <i class="fa-solid fa-phone"></i> 7022615928
+                    </a>
+                  </div>
+                  <div class="coord-member-row">
+                    <span class="coord-name">Yashwanth Patil</span>
+                    <a href="tel:8317345830" class="coord-phone-btn" title="Call Yashwanth Patil">
+                      <i class="fa-solid fa-phone"></i> 8317345830
+                    </a>
+                  </div>
+                  <div class="coord-member-row">
+                    <span class="coord-name">Nayan kumar</span>
+                    <a href="tel:6360860374" class="coord-phone-btn" title="Call Nayan kumar">
+                      <i class="fa-solid fa-phone"></i> 6360860374
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2. Code storm (Mini hackathon) -->
+              <div class="coord-category-group">
+                <div class="coord-category-header">
+                  <span class="coord-cat-badge badge-coding"><i class="fa-solid fa-laptop-code"></i> Code storm (Mini
+                    hackathon)</span>
+                </div>
+                <div class="coord-members-list">
+                  <div class="coord-member-row">
+                    <span class="coord-name">Abbu Bhakar siddik</span>
+                    <a href="tel:7022615928" class="coord-phone-btn" title="Call Abbu Bhakar siddik">
+                      <i class="fa-solid fa-phone"></i> 7022615928
+                    </a>
+                  </div>
+                  <div class="coord-member-row">
+                    <span class="coord-name">Lakshmikanth D H</span>
+                    <a href="tel:9480625245" class="coord-phone-btn" title="Call Lakshmikanth D H">
+                      <i class="fa-solid fa-phone"></i> 9480625245
+                    </a>
+                  </div>
+                  <div class="coord-member-row">
+                    <span class="coord-name">Karthik B kenchi</span>
+                    <a href="tel:8310013001" class="coord-phone-btn" title="Call Karthik B kenchi">
+                      <i class="fa-solid fa-phone"></i> 8310013001
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3. Agentic Arena (Agentic AI) -->
+              <div class="coord-category-group">
+                <div class="coord-category-header">
+                  <span class="coord-cat-badge badge-ai"><i class="fa-solid fa-brain"></i> Agentic Arena (Agentic
+                    AI)</span>
+                </div>
+                <div class="coord-members-list">
+                  <div class="coord-member-row">
+                    <span class="coord-name">Nayan Kumar</span>
+                    <a href="tel:6360860374" class="coord-phone-btn" title="Call Nayan Kumar">
+                      <i class="fa-solid fa-phone"></i> 6360860374
+                    </a>
+                  </div>
+                  <div class="coord-member-row">
+                    <span class="coord-name">Sharath</span>
+                    <a href="tel:6363065683" class="coord-phone-btn" title="Call Sharath">
+                      <i class="fa-solid fa-phone"></i> 6363065683
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 4. InnovateX (Model presentation) -->
+              <div class="coord-category-group">
+                <div class="coord-category-header">
+                  <span class="coord-cat-badge badge-presentation"><i class="fa-solid fa-lightbulb"></i> InnovateX
+                    (Model presentation)</span>
+                </div>
+                <div class="coord-members-list">
+                  <div class="coord-member-row">
+                    <span class="coord-name">Gnanesh G</span>
+                    <a href="tel:7676285059" class="coord-phone-btn" title="Call Gnanesh G">
+                      <i class="fa-solid fa-phone"></i> 7676285059
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 5. Registration -->
+              <div class="coord-category-group">
+                <div class="coord-category-header">
+                  <span class="coord-cat-badge badge-reg"><i class="fa-solid fa-id-card"></i> Registration</span>
+                </div>
+                <div class="coord-members-list">
+                  <div class="coord-member-row">
+                    <span class="coord-name">Yashwanth Patil</span>
+                    <a href="tel:8317345830" class="coord-phone-btn" title="Call Yashwanth Patil">
+                      <i class="fa-solid fa-phone"></i> 8317345830
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-row-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <strong>Official Website:</strong> <a href="https://www.shrideviengineering.org" target="_blank"
+                rel="noopener"
+                style="color: var(--accent-primary); text-decoration: underline;">www.shrideviengineering.org</a>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-row-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <strong>Venue:</strong> Shridevi Institute of Engineering and Technology, Sira Road,
+              Tumakuru - 572 106
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-row-icon"><i class="fa-solid fa-clock"></i></div>
+            <div>
+              <strong>Symposium Timings:</strong> 9:00 AM – 5:00 PM
+            </div>
+          </div>
+        </div>
+        <div class="modal-actions-wrap" style="margin-top: 20px;">
+          <a href="https://forms.google.com" target="_blank" rel="noopener" class="btn btn-primary"
+            style="width: 100%;">
+            <i class="fa-solid fa-bolt"></i> Proceed to Registration Form
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 
 </html>
