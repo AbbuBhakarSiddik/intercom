@@ -23,10 +23,8 @@
 </head>
 
 <body>
-  <!-- Ambient background glow elements -->
-  <div class="ambient-glow glow-1"></div>
-  <div class="ambient-glow glow-2"></div>
-  <div class="ambient-glow glow-3"></div>
+  <!-- Fixed Background Canvas (Jitter-Free, Never zooms on scroll) -->
+  <div class="fixed-bg-canvas" aria-hidden="true"></div>
   <div class="noise-overlay"></div>
 
   <!-- Top Glassmorphism Navigation Bar -->
@@ -38,19 +36,20 @@
           <img src="assets/SIETLOGO2.jpeg" alt="SIET College Logo" class="header-mini-logo">
         </div>
         <div class="header-college-text">
-          <span class="header-college-name">SHRIDEVI INSTITUTE OF ENGINEERING &amp; TECHNOLOGY</span>
-          <span class="header-college-sub">VTU Affiliated • NAAC 'A' Accredited</span>
+          <span class="header-college-name">
+            <span class="name-part-1">SHRIDEVI INSTITUTE OF ENGINEERING</span>
+            <span class="name-part-2">TECHNOLOGY</span>
+          </span>
+          <span class="header-college-sub"><i class="fa-solid fa-certificate"></i> VTU Affiliated • NAAC 'A' Accredited</span>
         </div>
       </a>
 
       <div class="header-actions">
-        <a href="#contactModal" id="btnHelpTrigger" class="header-icon-btn" title="Helpdesk & Venue"
-          aria-label="Help & Contact">
+        <a href="#contactModal" id="btnHelpTrigger" class="header-help-btn" title="Helpdesk &amp; Venue"
+          aria-label="Help &amp; Contact">
           <i class="fa-solid fa-headset"></i>
+          <span class="header-btn-text">Helpdesk</span>
         </a>
-        <button id="themeToggleBtn" class="header-icon-btn" aria-label="Toggle dark/light mode" title="Toggle Theme">
-          <i class="fa-solid fa-moon"></i>
-        </button>
       </div>
     </div>
   </header>

@@ -108,7 +108,8 @@ const rulebooksData = [
 
 // 2. Initialize App
 document.addEventListener("DOMContentLoaded", () => {
-  initThemeToggle();
+  enforceDarkTheme();
+  initFixedBackground();
   initActionCards();
   initMainRulebookQuickView();
   initDedicatedRulebooksPage();
@@ -129,35 +130,38 @@ function initActionCards() {
   });
 }
 
-// 3. Theme Toggle (Dark / Light)
-function initThemeToggle() {
-  const themeToggleBtns = document.querySelectorAll("#themeToggleBtn");
+// 3. Permanent Dark Theme Enforcement
+function enforceDarkTheme() {
   const htmlEl = document.documentElement;
-
-  // Check saved theme
-  const savedTheme = localStorage.getItem("intercom-theme") || "dark";
-  htmlEl.setAttribute("data-theme", savedTheme);
-  updateThemeIcons(savedTheme);
-
-  themeToggleBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const currentTheme = htmlEl.getAttribute("data-theme") || "dark";
-      const newTheme = currentTheme === "dark" ? "light" : "dark";
-      htmlEl.setAttribute("data-theme", newTheme);
-      localStorage.setItem("intercom-theme", newTheme);
-      updateThemeIcons(newTheme);
-    });
-  });
+  htmlEl.setAttribute("data-theme", "dark");
+  try {
+    localStorage.setItem("intercom-theme", "dark");
+  } catch (e) {
+    // LocalStorage fallback
+  }
 }
 
-function updateThemeIcons(theme) {
-  const icons = document.querySelectorAll("#themeToggleBtn i");
-  icons.forEach(icon => {
-    if (theme === "light") {
-      icon.className = "fa-solid fa-sun";
-    } else {
-      icon.className = "fa-solid fa-moon";
+// 4. Stable Fixed Background (Prevents mobile address-bar hide/show scroll zoom jump)
+function initFixedBackground() {
+  const updateHeight = () => {
+    const h = window.innerHeight;
+    document.documentElement.style.setProperty("--app-height", `${h}px`);
+  };
+
+  // Set initial height
+  updateHeight();
+
+  // Only recalculate on orientation or true horizontal resize, NEVER on pure vertical scroll resize
+  let lastWidth = window.innerWidth;
+  window.addEventListener("resize", () => {
+    if (window.innerWidth !== lastWidth) {
+      lastWidth = window.innerWidth;
+      updateHeight();
     }
+  });
+
+  window.addEventListener("orientationchange", () => {
+    setTimeout(updateHeight, 200);
   });
 }
 

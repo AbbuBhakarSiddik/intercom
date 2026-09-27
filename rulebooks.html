@@ -18,20 +18,41 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Ambient background glow elements -->
-  <div class="ambient-glow glow-1"></div>
-  <div class="ambient-glow glow-2"></div>
+  <!-- Fixed Background Canvas (Jitter-Free, Never zooms on scroll) -->
+  <div class="fixed-bg-canvas" aria-hidden="true"></div>
   <div class="noise-overlay"></div>
 
-  <!-- Floating Controls (Home & Theme Toggle) -->
-  <aside class="floating-controls" style="display: flex; gap: 10px; align-items: center;">
-    <a href="index.html" class="floating-theme-btn" aria-label="Go to Home" title="Back to Home" style="text-decoration: none;">
-      <i class="fa-solid fa-arrow-left"></i>
-    </a>
-    <button id="themeToggleBtn" class="floating-theme-btn" aria-label="Toggle dark/light mode" title="Toggle Theme">
-      <i class="fa-solid fa-moon"></i>
-    </button>
-  </aside>
+  <!-- Top Glassmorphism Navigation Bar -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="header-back-btn" title="Back to Home Portal" aria-label="Back to Home">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span class="header-btn-text">Back to Home</span>
+      </a>
+
+      <a href="https://www.shrideviengineering.org" target="_blank" rel="noopener noreferrer"
+        class="header-college-pill" title="Visit Shridevi Official Website">
+        <div class="header-logo-wrap">
+          <img src="assets/SIETLOGO2.jpeg" alt="SIET College Logo" class="header-mini-logo">
+        </div>
+        <div class="header-college-text">
+          <span class="header-college-name">
+            <span class="name-part-1">SHRIDEVI INSTITUTE OF ENGINEERING</span>
+            <span class="name-part-2">TECHNOLOGY</span>
+          </span>
+          <span class="header-college-sub"><i class="fa-solid fa-certificate"></i> VTU Affiliated • NAAC 'A' Accredited</span>
+        </div>
+      </a>
+
+      <div class="header-actions">
+        <a href="index.html#contactModal" class="header-help-btn" title="Helpdesk &amp; Venue"
+          aria-label="Help &amp; Contact">
+          <i class="fa-solid fa-headset"></i>
+          <span class="header-btn-text">Helpdesk</span>
+        </a>
+      </div>
+    </div>
+  </header>
 
   <!-- Brand & Identity Showcase Section -->
   <section class="brand-showcase-section">
