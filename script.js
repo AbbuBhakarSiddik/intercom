@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   enforceDarkTheme();
   initActionCards();
   initContactModal();
+  initRegistrationNotice();
 });
 
 // 1. Permanent Dark Theme Enforcement
@@ -110,3 +111,52 @@ function initContactModal() {
     }
   });
 }
+
+// 4. Registration Notice Logic (Opens October 5th)
+function initRegistrationNotice() {
+  const regBtn = document.getElementById("btnRegistration");
+  const modalRegBtn = document.getElementById("btnModalRegistration");
+  const toast = document.getElementById("registrationToast");
+
+  function showRegistrationNotice(e) {
+    const targetLink = e ? (e.currentTarget || e.target) : null;
+    const href = targetLink && targetLink.getAttribute ? targetLink.getAttribute("href") : "";
+
+    // Allow normal navigation if an active Google Form or external link is configured in the future
+    if (href && href !== "#" && !href.startsWith("javascript")) {
+      return;
+    }
+
+    if (e) e.preventDefault();
+
+    if (!toast) {
+      alert("Registration will open on October 5th");
+      return;
+    }
+
+    // Trigger toast notification
+    toast.classList.remove("active");
+    void toast.offsetWidth; // Force DOM reflow to re-trigger CSS animation
+    toast.classList.add("active");
+
+    if (window._toastTimeout) {
+      clearTimeout(window._toastTimeout);
+    }
+    window._toastTimeout = setTimeout(() => {
+      toast.classList.remove("active");
+    }, 3600);
+  }
+
+  if (regBtn) {
+    regBtn.addEventListener("click", showRegistrationNotice);
+  }
+  if (modalRegBtn) {
+    modalRegBtn.addEventListener("click", showRegistrationNotice);
+  }
+  if (toast) {
+    toast.addEventListener("click", () => {
+      toast.classList.remove("active");
+    });
+  }
+}
+

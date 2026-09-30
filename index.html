@@ -154,9 +154,9 @@
               <div class="card-icon-wrap">
                 <i class="fa-solid fa-bolt-lightning"></i>
               </div>
-              <span class="card-status-pill pill-live">
+              <span class="card-status-pill pill-upcoming">
                 <span class="pulse-dot"></span>
-                <span>Open Now</span>
+                <span>Opens October 5th</span>
               </span>
             </div>
 
@@ -164,16 +164,16 @@
               <span class="card-category-tag">Join the event</span>
               <h2 class="card-title">Registration</h2>
               <p class="card-info">
-                Registrations are now open. Register your team and participate in the exciting events of Innovation
-                Ignite Symposium 2.0.
+                Registration will open on October 5th. Stay tuned to register your team and participate in the exciting
+                events of Innovation Ignite Symposium 2.0.
               </p>
             </div>
 
-            <a href="https://forms.google.com" target="_blank" rel="noopener noreferrer" class="card-action-bar"
-              id="btnRegistration" aria-label="Register Now for Innovation Ignite Events">
-              <span class="card-action-label">Register Now</span>
+            <a href="#" class="card-action-bar" id="btnRegistration" aria-label="Registration will open on October 5th"
+              data-notice="Registration will open on octobar 5th">
+              <span class="card-action-label">Registration Opens October 5th</span>
               <span class="card-action-arrow">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                <i class="fa-solid fa-clock"></i>
               </span>
             </a>
           </div>
@@ -453,14 +453,21 @@
           </div>
         </div>
         <div class="modal-actions-wrap" style="margin-top: 20px;">
-          <a href="https://forms.google.com" target="_blank" rel="noopener" class="btn btn-primary"
-            style="width: 100%;">
-            <i class="fa-solid fa-bolt"></i> Proceed to Registration Form
+          <a href="#" id="btnModalRegistration" class="btn btn-primary" style="width: 100%;"
+            aria-label="Registration will open on October 5th" data-notice="Registration will open on octobar 5th">
+            <i class="fa-solid fa-calendar-check"></i> Registration Opens October 5th
           </a>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Floating Toast Notification for Portal Alerts -->
+  <div id="registrationToast" class="portal-toast" role="status" aria-live="polite">
+    <span class="portal-toast-icon"><i class="fa-solid fa-calendar-check"></i></span>
+    <span class="portal-toast-msg">Registration will open on October 5th</span>
+  </div>
+
   <!-- Scripts -->
   <script src="script.js"></script>
 </body>
