@@ -1487,7 +1487,8 @@ body::before {
   transition: opacity 0.25s ease;
 }
 
-.modal.active {
+.modal.active,
+.modal:target {
   opacity: 1;
   pointer-events: auto;
 }
@@ -1522,7 +1523,8 @@ body::before {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
 }
 
-.modal.active .modal-content {
+.modal.active .modal-content,
+.modal:target .modal-content {
   transform: translateY(0) scale(1);
 }
 
