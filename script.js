@@ -1,13 +1,20 @@
 /**
  * INTERCOM '26 - Main Application Logic
  * Innovation Ignite Symposium 2.0 Portal
+ * SIET CSE • Creative Codex
  */
+
+// Target registration launch time: October 4th, 2026 at 7:30 PM IST (UTC+5:30)
+const REGISTRATION_TARGET = new Date("2026-10-04T19:30:00+05:30").getTime();
+
+// Destination URL for active registrations (Custom form or official portal)
+const REGISTRATION_URL = "https://symposium-2-0.vercel.app/";
 
 document.addEventListener("DOMContentLoaded", () => {
   enforceDarkTheme();
   initActionCards();
   initContactModal();
-  initRegistrationNotice();
+  initHypeLaunchCountdown();
 });
 
 // 1. Permanent Dark Theme Enforcement
@@ -112,51 +119,336 @@ function initContactModal() {
   });
 }
 
-// 4. Registration Notice Logic (Opens October 5th)
-function initRegistrationNotice() {
-  const regBtn = document.getElementById("btnRegistration");
-  const modalRegBtn = document.getElementById("btnModalRegistration");
+// 4. Hype Launch Modal & Live Registration Timer System
+function initHypeLaunchCountdown() {
+  const hypeModal = document.getElementById("hypeModal");
+  const closeHypeModalBtn = document.getElementById("closeHypeModal");
+  const hypeDismissBtn = document.getElementById("hypeDismissBtn");
+  const hypeBackdrop = document.getElementById("hypeBackdrop");
+  const floatingHypePill = document.getElementById("floatingHypePill");
+  const hypeActionBtn = document.getElementById("hypeActionBtn");
+  const hypeActionText = document.getElementById("hypeActionText");
+  const hypeActionIcon = document.getElementById("hypeActionIcon");
+
+  // Hype Modal Text Elements
+  const hypeTitle = document.getElementById("hypeTitle");
+  const hypeSubtitle = document.getElementById("hypeSubtitle");
+  const hypeStatusMsg = document.getElementById("hypeStatusMsg");
+
+  // Hype Modal Timer Digits
+  const hypeHours = document.getElementById("hypeHours");
+  const hypeMinutes = document.getElementById("hypeMinutes");
+  const hypeSeconds = document.getElementById("hypeSeconds");
+
+  // Floating Pill Timer
+  const floatingTimer = document.getElementById("floatingTimer");
+
+  // Card 1 Elements
+  const cardRegister = document.getElementById("cardRegister");
+  const cardHours = document.getElementById("cardHours");
+  const cardMinutes = document.getElementById("cardMinutes");
+  const cardSeconds = document.getElementById("cardSeconds");
+  const btnRegistration = document.getElementById("btnRegistration");
+  const btnRegLabel = document.getElementById("btnRegLabel");
+  const btnRegIcon = document.getElementById("btnRegIcon");
+  const cardRegStatusPill = document.getElementById("cardRegStatusPill");
+  const cardRegStatusLabel = document.getElementById("cardRegStatusLabel");
+  const cardRegDesc = document.getElementById("cardRegDesc");
+
+  // Modal Contact Registration Button
+  const btnModalRegistration = document.getElementById("btnModalRegistration");
+  const modalRegText = document.getElementById("modalRegText");
+  const modalRegIcon = document.getElementById("modalRegIcon");
+
+  // Toast Notification
   const toast = document.getElementById("registrationToast");
 
-  function showRegistrationNotice(e) {
-    const targetLink = e ? (e.currentTarget || e.target) : null;
-    const href = targetLink && targetLink.getAttribute ? targetLink.getAttribute("href") : "";
+  let isLiveTriggered = false;
 
-    // Allow normal navigation if an active Google Form or external link is configured in the future
-    if (href && href !== "#" && !href.startsWith("javascript")) {
-      return;
-    }
+  // Helper: pad with leading zero
+  function pad(num) {
+    return String(Math.max(0, num)).padStart(2, "0");
+  }
 
-    if (e) e.preventDefault();
+  // Open Hype Modal
+  function openHypeModal() {
+    if (!hypeModal) return;
+    hypeModal.classList.add("active");
+    hypeModal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("hype-active");
+  }
 
-    if (!toast) {
-      alert("Registration will open on October 5th");
-      return;
-    }
+  // Close Hype Modal (allowing user to watch/browse the website freely)
+  function closeHypeModal() {
+    if (!hypeModal) return;
+    hypeModal.classList.remove("active");
+    hypeModal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("hype-active");
+  }
 
-    // Trigger toast notification
+  // Trigger brief Toast notification
+  function showToast(message) {
+    if (!toast) return;
+    const msgEl = toast.querySelector(".portal-toast-msg");
+    if (msgEl && message) msgEl.textContent = message;
     toast.classList.remove("active");
-    void toast.offsetWidth; // Force DOM reflow to re-trigger CSS animation
+    void toast.offsetWidth;
     toast.classList.add("active");
 
-    if (window._toastTimeout) {
-      clearTimeout(window._toastTimeout);
-    }
+    if (window._toastTimeout) clearTimeout(window._toastTimeout);
     window._toastTimeout = setTimeout(() => {
       toast.classList.remove("active");
     }, 3600);
   }
 
-  if (regBtn) {
-    regBtn.addEventListener("click", showRegistrationNotice);
+  // Trigger celebration particle effect when live
+  function triggerCelebration() {
+    const colors = ["#ff5722", "#ff9800", "#10b981", "#6366f1", "#ec4899", "#fbbf24"];
+    const container = document.body;
+
+    for (let i = 0; i < 40; i++) {
+      const particle = document.createElement("div");
+      particle.className = "celebration-sparkle";
+      const size = Math.floor(Math.random() * 8) + 6;
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      const startX = Math.random() * 100;
+      const endX = startX + (Math.random() * 30 - 15);
+      const duration = (Math.random() * 1.5 + 1.2).toFixed(2);
+      const delay = (Math.random() * 0.4).toFixed(2);
+
+      particle.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: ${startX}vw;
+        width: ${size}px;
+        height: ${size}px;
+        background-color: ${color};
+        border-radius: ${Math.random() > 0.5 ? '50%' : '3px'};
+        z-index: 999999;
+        pointer-events: none;
+        opacity: 0.95;
+        box-shadow: 0 0 10px ${color};
+        animation: confettiFall ${duration}s ease-out ${delay}s forwards;
+      `;
+      container.appendChild(particle);
+
+      setTimeout(() => {
+        if (particle.parentNode) particle.parentNode.removeChild(particle);
+      }, (parseFloat(duration) + parseFloat(delay)) * 1000 + 200);
+    }
   }
-  if (modalRegBtn) {
-    modalRegBtn.addEventListener("click", showRegistrationNotice);
+
+  // Ensure keyframes for celebration exist
+  if (!document.getElementById("celebrationStyles")) {
+    const styleEl = document.createElement("style");
+    styleEl.id = "celebrationStyles";
+    styleEl.textContent = `
+      @keyframes confettiFall {
+        0% { transform: translateY(-10px) rotate(0deg) scale(0.6); opacity: 1; }
+        50% { opacity: 0.9; }
+        100% { transform: translateY(100vh) rotate(540deg) scale(1.1); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(styleEl);
   }
+
+  // Core countdown update function
+  function updateTimer() {
+    const now = Date.now();
+    const diff = REGISTRATION_TARGET - now;
+
+    if (diff <= 0) {
+      // ==========================================
+      // STATE: REGISTRATIONS ARE LIVE!
+      // ==========================================
+      if (!isLiveTriggered) {
+        isLiveTriggered = true;
+        triggerCelebration();
+      }
+
+      // 1. Update Hype Modal
+      if (hypeTitle) {
+        hypeTitle.innerHTML = '<span class="hype-fire-text">LET THE GAME BEGIN!</span>';
+      }
+      if (hypeSubtitle) {
+        hypeSubtitle.innerHTML = '<span style="color:#10b981;font-weight:900;">🔥 REGISTRATIONS ARE NOW LIVE! 🚀</span>';
+      }
+      if (hypeStatusMsg) {
+        hypeStatusMsg.textContent = "Registration is officially open! Tap below to register your team.";
+      }
+      if (hypeHours) hypeHours.textContent = "00";
+      if (hypeMinutes) hypeMinutes.textContent = "00";
+      if (hypeSeconds) hypeSeconds.textContent = "00";
+
+      if (hypeActionBtn) {
+        hypeActionBtn.href = REGISTRATION_URL;
+        hypeActionBtn.target = "_blank";
+        hypeActionBtn.rel = "noopener noreferrer";
+        hypeActionBtn.style.background = "linear-gradient(135deg, #10b981 0%, #06b6d4 100%)";
+        hypeActionBtn.style.boxShadow = "0 8px 32px rgba(16, 185, 129, 0.65)";
+      }
+      if (hypeActionText) hypeActionText.textContent = "REGISTER NOW • ENTER ARENA";
+      if (hypeActionIcon) hypeActionIcon.className = "fa-solid fa-bolt";
+
+      // 2. Update Card 1
+      if (cardRegister) {
+        cardRegister.classList.add("is-live");
+      }
+      if (cardRegStatusPill) {
+        cardRegStatusPill.className = "card-status-pill pill-live";
+      }
+      if (cardRegStatusLabel) {
+        cardRegStatusLabel.textContent = "Registrations Live";
+      }
+      if (cardRegDesc) {
+        cardRegDesc.textContent = "LET THE GAME BEGIN! Registrations are now officially live. Submit your entries and prepare to dominate the arena!";
+      }
+      if (cardHours) cardHours.textContent = "00";
+      if (cardMinutes) cardMinutes.textContent = "00";
+      if (cardSeconds) cardSeconds.textContent = "00";
+
+      if (btnRegistration) {
+        btnRegistration.href = REGISTRATION_URL;
+        btnRegistration.target = "_blank";
+        btnRegistration.rel = "noopener noreferrer";
+      }
+      if (btnRegLabel) btnRegLabel.textContent = "Register Now";
+      if (btnRegIcon) btnRegIcon.innerHTML = '<i class="fa-solid fa-arrow-right"></i>';
+
+      // 3. Update Modal Button
+      if (btnModalRegistration) {
+        btnModalRegistration.href = REGISTRATION_URL;
+        btnModalRegistration.target = "_blank";
+        btnModalRegistration.rel = "noopener noreferrer";
+      }
+      if (modalRegText) modalRegText.textContent = "Register Now";
+      if (modalRegIcon) modalRegIcon.className = "fa-solid fa-bolt";
+
+      // 4. Update Floating Pill
+      if (floatingTimer) {
+        floatingTimer.textContent = "LIVE NOW!";
+        floatingTimer.style.color = "#34d399";
+      }
+
+      return;
+    }
+
+    // ==========================================
+    // STATE: COUNTDOWN RUNNING LIVE (PRE-LAUNCH)
+    // ==========================================
+    const totalSeconds = Math.floor(diff / 1000);
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    const formattedH = pad(hours);
+    const formattedM = pad(minutes);
+    const formattedS = pad(seconds);
+
+    // Update Hype Modal Digits
+    if (hypeHours) hypeHours.textContent = formattedH;
+    if (hypeMinutes) hypeMinutes.textContent = formattedM;
+    if (hypeSeconds) hypeSeconds.textContent = formattedS;
+
+    // Update Floating Pill
+    if (floatingTimer) {
+      floatingTimer.textContent = `${formattedH}:${formattedM}:${formattedS}`;
+    }
+
+    // Update Card 1 Digits
+    if (cardHours) cardHours.textContent = formattedH;
+    if (cardMinutes) cardMinutes.textContent = formattedM;
+    if (cardSeconds) cardSeconds.textContent = formattedS;
+
+    // Update Buttons with Live Countdown
+    const timerLabelText = `Opens in ${formattedH}h ${formattedM}m ${formattedS}s`;
+    if (btnRegLabel) btnRegLabel.textContent = timerLabelText;
+    if (modalRegText) modalRegText.textContent = timerLabelText;
+    if (hypeActionText) hypeActionText.textContent = `Opens in ${formattedH}:${formattedM}:${formattedS}`;
+  }
+
+  // Event Listeners: Close Hype Modal
+  if (closeHypeModalBtn) {
+    closeHypeModalBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      closeHypeModal();
+    });
+  }
+
+  if (hypeDismissBtn) {
+    hypeDismissBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      closeHypeModal();
+    });
+  }
+
+  if (hypeBackdrop) {
+    hypeBackdrop.addEventListener("click", closeHypeModal);
+  }
+
+  // Keyboard Escape to close
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && hypeModal && hypeModal.classList.contains("active")) {
+      closeHypeModal();
+    }
+  });
+
+  // Reopen Hype Modal from Floating Pill
+  if (floatingHypePill) {
+    floatingHypePill.addEventListener("click", openHypeModal);
+  }
+
+  // Click on Card 1 Registration Button
+  if (btnRegistration) {
+    btnRegistration.addEventListener("click", (e) => {
+      const now = Date.now();
+      if (now < REGISTRATION_TARGET) {
+        e.preventDefault();
+        openHypeModal();
+        showToast("Registrations go live today at 7:30 PM!");
+      }
+      // If live, default anchor navigation to REGISTRATION_URL proceeds
+    });
+  }
+
+  // Click on Contact Modal Registration Button
+  if (btnModalRegistration) {
+    btnModalRegistration.addEventListener("click", (e) => {
+      const now = Date.now();
+      if (now < REGISTRATION_TARGET) {
+        e.preventDefault();
+        openHypeModal();
+        showToast("Registrations go live today at 7:30 PM!");
+      }
+    });
+  }
+
+  // Click on Hype Action Button when counting down
+  if (hypeActionBtn) {
+    hypeActionBtn.addEventListener("click", (e) => {
+      const now = Date.now();
+      if (now < REGISTRATION_TARGET) {
+        e.preventDefault();
+        showToast("LET THE GAME BEGIN! Unlocking at 7:30 PM!");
+      }
+    });
+  }
+
+  // Toast dismiss on click
   if (toast) {
     toast.addEventListener("click", () => {
       toast.classList.remove("active");
     });
   }
-}
 
+  // Run initial timer calculation immediately
+  updateTimer();
+
+  // Tick every second
+  setInterval(updateTimer, 1000);
+
+  // Automatically pop up the Hype component when the website opens
+  setTimeout(() => {
+    openHypeModal();
+  }, 280);
+}

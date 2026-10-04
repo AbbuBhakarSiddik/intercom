@@ -147,32 +147,57 @@
         <div class="action-grid" id="mainActions">
 
           <!-- CARD 1: REGISTRATION (Featured / High Energy) -->
-          <div class="action-card card-register">
+          <div class="action-card card-register" id="cardRegister">
             <div class="card-glow-bg"></div>
 
             <div class="card-top-row">
               <div class="card-icon-wrap">
                 <i class="fa-solid fa-bolt-lightning"></i>
               </div>
-              <span class="card-status-pill pill-upcoming">
-                <span class="pulse-dot"></span>
-                <span>Opens October 5th</span>
+              <span class="card-status-pill pill-upcoming" id="cardRegStatusPill">
+                <span class="pulse-dot" id="cardRegPulse"></span>
+                <span id="cardRegStatusLabel">Opens 7:30 PM Today</span>
               </span>
             </div>
 
             <div class="card-body">
               <span class="card-category-tag">Join the event</span>
               <h2 class="card-title">Registration</h2>
-              <p class="card-info">
-                Registration will open on October 5th. Stay tuned to register your team and participate in the exciting
-                events of Innovation Ignite Symposium 2.0.
+              <p class="card-info" id="cardRegDesc">
+                "LET THE GAME BEGIN.." Registrations go live today, 4th Oct 2026 at 7:30 PM! Stay tuned to lock in your
+                slot.
               </p>
+
+              <!-- Live Card Mini Countdown Timer Widget -->
+              <div class="card-timer-widget" id="cardTimerWidget">
+                <div class="card-timer-header">
+                  <i class="fa-solid fa-stopwatch"></i>
+                  <span>Live Countdown</span>
+                </div>
+                <div class="card-timer-digits">
+                  <div class="c-digit-box">
+                    <span class="c-digit-num" id="cardHours">00</span>
+                    <span class="c-digit-sub">HRS</span>
+                  </div>
+                  <span class="c-digit-colon">:</span>
+                  <div class="c-digit-box">
+                    <span class="c-digit-num" id="cardMinutes">00</span>
+                    <span class="c-digit-sub">MIN</span>
+                  </div>
+                  <span class="c-digit-colon">:</span>
+                  <div class="c-digit-box">
+                    <span class="c-digit-num" id="cardSeconds">00</span>
+                    <span class="c-digit-sub">SEC</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <a href="#" class="card-action-bar" id="btnRegistration" aria-label="Registration will open on October 5th"
-              data-notice="Registration will open on octobar 5th">
-              <span class="card-action-label">Registration Opens October 5th</span>
-              <span class="card-action-arrow">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScywBtw87SLEK_igqkywJy4C783aIDstKYHS7lFoAeRsr3yKQ/viewform?usp=sharing&ouid=100506032560551306654"
+              class="card-action-bar" id="btnRegistration" aria-label="Registration Countdown"
+              data-notice="Registration will go live at 7:30 PM!">
+              <span class="card-action-label" id="btnRegLabel">Opens in --:--:--</span>
+              <span class="card-action-arrow" id="btnRegIcon">
                 <i class="fa-solid fa-clock"></i>
               </span>
             </a>
@@ -454,18 +479,106 @@
         </div>
         <div class="modal-actions-wrap" style="margin-top: 20px;">
           <a href="#" id="btnModalRegistration" class="btn btn-primary" style="width: 100%;"
-            aria-label="Registration will open on October 5th" data-notice="Registration will open on octobar 5th">
-            <i class="fa-solid fa-calendar-check"></i> Registration Opens October 5th
+            aria-label="Registration Countdown" data-notice="Registration will go live at 7:30 PM!">
+            <i class="fa-solid fa-clock" id="modalRegIcon"></i> <span id="modalRegText">Opens at 7:30 PM Today</span>
           </a>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- HYPE LAUNCH POPUP MODAL: "LET THE GAME BEGIN.." -->
+  <div class="hype-modal" id="hypeModal" role="dialog" aria-modal="true" aria-labelledby="hypeTitle" aria-hidden="true">
+    <div class="hype-backdrop" id="hypeBackdrop"></div>
+    <div class="hype-dialog">
+      <!-- Glow ambient background -->
+      <div class="hype-glow-ambient" aria-hidden="true"></div>
+
+      <!-- Top Close Icon Button -->
+      <button class="hype-close-btn" id="closeHypeModal" aria-label="Close announcement">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Content -->
+      <div class="hype-body">
+        <div class="hype-pill-badge">
+          <span class="pulse-dot-fire"></span>
+          <span>SYMPOSIUM 2.0 LAUNCH</span>
+        </div>
+
+        <div class="hype-headline-wrap">
+          <span class="hype-eyebrow">INNOVATION IGNITE 2.0</span>
+          <h2 class="hype-title" id="hypeTitle">
+            <span class="hype-fire-text">LET THE GAME BEGIN..</span>
+          </h2>
+          <p class="hype-subtitle" id="hypeSubtitle">
+            registrations soon..
+          </p>
+          <p class="hype-tagline">
+            Assemble your squad, prepare your skills &amp; get ready to dominate the arena!
+          </p>
+        </div>
+
+        <!-- Target Launch Info Chip -->
+        <div class="hype-launch-target" id="hypeLaunchTarget">
+          <i class="fa-solid fa-bolt-lightning"></i>
+          <span>Going Live Today • <strong>4th Oct 2026, 7:30 PM IST</strong></span>
+        </div>
+
+        <!-- Live Running Countdown Timer Component -->
+        <div class="hype-timer-container" id="hypeTimerContainer" aria-label="Registration countdown timer">
+          <div class="hype-timer-grid">
+            <div class="hype-time-card">
+              <span class="hype-time-val" id="hypeHours">00</span>
+              <span class="hype-time-lbl">Hours</span>
+            </div>
+            <span class="hype-timer-divider">:</span>
+            <div class="hype-time-card">
+              <span class="hype-time-val" id="hypeMinutes">00</span>
+              <span class="hype-time-lbl">Minutes</span>
+            </div>
+            <span class="hype-timer-divider">:</span>
+            <div class="hype-time-card">
+              <span class="hype-time-val" id="hypeSeconds">00</span>
+              <span class="hype-time-lbl">Seconds</span>
+            </div>
+          </div>
+          <div class="hype-timer-status" id="hypeTimerStatus">
+            <span class="live-dot-glow"></span>
+            <span id="hypeStatusMsg">Live Ticking to 7:30 PM Launch</span>
+          </div>
+        </div>
+
+        <!-- Dynamic Action Button Area -->
+        <div class="hype-actions">
+          <a href="#" class="hype-btn-primary" id="hypeActionBtn">
+            <i class="fa-solid fa-clock" id="hypeActionIcon"></i>
+            <span id="hypeActionText">Opens in --:--:--</span>
+          </a>
+          <button type="button" class="hype-btn-dismiss" id="hypeDismissBtn">
+            <span>Continue Watching Website</span>
+            <i class="fa-solid fa-arrow-down"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Sticky Hype Ticker Pill (When Modal is Closed) -->
+  <div class="floating-hype-pill" id="floatingHypePill" role="button" tabindex="0" title="Click to view countdown"
+    aria-label="Open registration countdown">
+    <span class="pulse-dot-fire"></span>
+    <span class="floating-pill-text">
+      <span class="pill-bold">LET THE GAME BEGIN:</span>
+      <span class="pill-timer" id="floatingTimer">00:00:00</span>
+    </span>
+    <i class="fa-solid fa-up-right-and-down-left-from-center pill-open-icon"></i>
+  </div>
+
   <!-- Floating Toast Notification for Portal Alerts -->
   <div id="registrationToast" class="portal-toast" role="status" aria-live="polite">
     <span class="portal-toast-icon"><i class="fa-solid fa-calendar-check"></i></span>
-    <span class="portal-toast-msg">Registration will open on October 5th</span>
+    <span class="portal-toast-msg">Registration will go live at 7:30 PM!</span>
   </div>
 
   <!-- Scripts -->
