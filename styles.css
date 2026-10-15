@@ -1,4 +1,4 @@
-﻿/* ===================================================================
+/* ===================================================================
    INNOVATION IGNITE 2.0 - Mobile-First High-Performance Design System
    Modern QR Landing Portal | SIET â€¢ Creative Codex
    =================================================================== */
@@ -178,12 +178,129 @@ body::before {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(10, 13, 20, 0.85);
+  background: rgba(10, 13, 20, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-subtle);
-  padding: 10px 0;
+  padding: 10px 0 0 0;
   transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+/* ===================================================================
+   RUNNING HEADER ANNOUNCEMENT TICKER (UNDER COLLEGE NAME)
+   Continuous, seamless marquee with compact spacing and no popups
+   =================================================================== */
+
+.running-header-strip {
+  width: 100%;
+  margin-top: 6px;
+  background: rgba(15, 20, 34, 0.78);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 4px 0;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  pointer-events: none;
+}
+
+[data-theme="light"] .running-header-strip {
+  background: rgba(241, 245, 249, 0.85);
+  border-top-color: rgba(0, 0, 0, 0.06);
+}
+
+.running-header-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.running-update-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4.5px;
+  padding: 2px 7.5px;
+  border-radius: var(--radius-full);
+  background: rgba(245, 158, 11, 0.16);
+  border: 1px solid rgba(245, 158, 11, 0.42);
+  color: #fbbf24;
+  font-family: var(--font-heading);
+  font-size: 0.60rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  line-height: 1.2;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.15);
+}
+
+.running-update-badge i {
+  font-size: 0.62rem;
+  color: #f59e0b;
+}
+
+[data-theme="light"] .running-update-badge {
+  background: rgba(245, 158, 11, 0.14);
+  border-color: rgba(217, 119, 6, 0.5);
+  color: #b45309;
+}
+
+.running-ticker-viewport {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.running-ticker-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  will-change: transform;
+  animation: marqueeContinuous 20s linear infinite;
+}
+
+.running-ticker-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.running-ticker-item {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #fbbf24;
+  letter-spacing: 0.015em;
+  white-space: nowrap;
+}
+
+[data-theme="light"] .running-ticker-item {
+  color: #b45309;
+}
+
+.running-ticker-text {
+  white-space: nowrap;
+}
+
+.running-ticker-sep {
+  margin: 0 10px;
+  color: #f59e0b;
+  font-size: 0.65rem;
+  opacity: 0.8;
+  display: inline-block;
+}
+
+@keyframes marqueeContinuous {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
 }
 
 .header-container {
@@ -2699,7 +2816,35 @@ body::before {
   }
 
   .site-header {
-    padding: 8px 0;
+    padding: 8px 0 0 0;
+  }
+
+  .running-header-strip {
+    margin-top: 5px;
+    padding: 3px 0;
+  }
+
+  .running-header-container {
+    gap: 7px;
+    padding: 0 8px;
+  }
+
+  .running-update-badge {
+    padding: 1.5px 6px;
+    font-size: 0.55rem;
+    gap: 3.5px;
+  }
+
+  .running-update-badge i {
+    font-size: 0.56rem;
+  }
+
+  .running-ticker-item {
+    font-size: 0.72rem;
+  }
+
+  .running-ticker-sep {
+    margin: 0 8px;
   }
 
   .header-container {

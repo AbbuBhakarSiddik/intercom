@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initActionCards();
   initContactModal();
   initToast();
+  initRunningHeader();
 });
 
 // 1. Permanent Dark Theme Enforcement
@@ -122,3 +123,28 @@ function initToast() {
     toast.classList.remove("active");
   });
 }
+
+// 5. Running Header Marquee Text Auto-Sync & Seamless Loop Guarantee
+// Ensures that if the user manually changes the text in HTML, all ticker spans stay perfectly in sync
+function initRunningHeader() {
+  const track = document.getElementById("runningTickerTrack");
+  if (!track) return;
+
+  const firstTextElem = track.querySelector(".running-ticker-text");
+  if (!firstTextElem) return;
+
+  const text = firstTextElem.textContent.trim();
+  if (!text) return;
+
+  const allTexts = track.querySelectorAll(".running-ticker-text");
+  allTexts.forEach(el => {
+    el.textContent = text;
+  });
+
+  // Guarantee group 2 is identical to group 1 for a 100% seamless, continuous loop
+  const groups = track.querySelectorAll(".running-ticker-group");
+  if (groups.length >= 2) {
+    groups[1].innerHTML = groups[0].innerHTML;
+  }
+}
+
